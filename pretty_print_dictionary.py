@@ -55,7 +55,7 @@ class B(object):
 
 
 class PrettyDict(object):
-    def __init__(self, mdict, fill_char_width=2, fill_char=' ', order='even'):
+    def __init__(self, mdict, fill_char_width=2, fill_char=' ', order='even', show_level='hide'):
         self.mdict = mdict
         self.temp_mdict = mdict
         self.fill_char_width = fill_char_width
@@ -63,6 +63,7 @@ class PrettyDict(object):
         self.level = 0
         self.offset = 1
         self.__order = order
+        self.show_level = show_level
 
 
     def ppd(self):
@@ -78,13 +79,13 @@ class PrettyDict(object):
                 value = mdict[key]
                 if isinstance(value, dict):
                     print current_key_color + ' ' * (level * self.fill_char_width) + str(
-                        key), ':level %d' % (level + 1), color.get_end_color()
+                        key), (':level %d' % (level + 1)) if self.show_level == 'show' else '', color.get_end_color()
                     self.__print(value, level + 1)
                 elif isinstance(value, collections.Iterable):
                     current_value_color = color.get_color(level=level + 1)
                     print_statement = []
                     print current_key_color + ' ' * (level * self.fill_char_width) + str(
-                        key), ':level %d' % (level + 1), color.get_end_color()
+                        key), (':level %d' % (level + 1)) if self.show_level == 'show' else '', color.get_end_color()
                     for v in value:
                         print_statement += str(v)
                     print_statement = ','.join(print_statement)
@@ -99,10 +100,5 @@ class PrettyDict(object):
 
 
 ppd = PrettyDict({A(): {1: [1, 2, 3]}, B(): {2: {3: [1, 2, 3, 5, 4, 3, 2]}, 4: ['a', 'b']}, 3: ['a', 'b']},
-                 order='full')
-
-# ppd = PrettyDict({B(): {2: {3: [1, 2, 3, 5, 4, 3, 2]}}})
-# print str(ppd)
+                 order='full', show_level='show')
 ppd.ppd()
-# c = Colors()
-# print c.get_color(), 'hadi'
