@@ -114,20 +114,26 @@ class PrettyDict(object):
             for key in mdict.keys():
                 value = mdict[key]
                 if isinstance(value, dict):
-                    print current_key_color + ' ' * (level * self.fill_char_width) + str(
+                    print current_key_color + self.fill_char * (level * self.fill_char_width) + str(
                         key), (':level %d' % (level + 1)) if self.show_level == 'show' else '', color.get_end_color()
                     self.__print(value, level + 1)
                 elif isinstance(value, collections.Iterable):
                     current_value_color = color.get_color(level=level + 1)
                     print_statement = []
-                    print current_key_color + ' ' * (level * self.fill_char_width) + str(
+                    print current_key_color + self.fill_char * (level * self.fill_char_width) + str(
                         key), (':level %d' % (level + 1)) if self.show_level == 'show' else '', color.get_end_color()
                     for v in value:
                         print_statement += str(v)
                     print_statement = ','.join(print_statement)
                     print current_value_color,
-                    print ' ' * (level * self.fill_char_width + self.offset) + print_statement,
+                    print self.fill_char * (level * self.fill_char_width + self.offset) + print_statement,
                     print color.get_end_color() + '\n',
+                else:
+                    current_value_color = color.get_color(level=level + 1)
+                    print current_key_color + ' ' * (level * self.fill_char_width) + str(
+                        key), (':level %d' % (level + 1)) if self.show_level == 'show' else '', color.get_end_color()
+                    print current_value_color,
+                    print self.fill_char * (level * self.fill_char_width + self.offset) + str(mdict[key])
 
     def __repr__(self):
         return 'Pretty Print Dictionary'
