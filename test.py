@@ -1,8 +1,7 @@
 from pretty_print_dictionary import PrettyDict
 
 dict_1 = {'a': 0, '1': {1: 'c', 2: 'd'}}
-print dict_1
-pd = PrettyDict(dict_1, fill_char=' ', fill_char_width=2, show_level='hide')
+pd = PrettyDict(dict_1, fill_char='^', fill_char_width=4, show_level='hide')
 pd.ppd()
 
 
@@ -12,8 +11,8 @@ class A(object):
 
 
 a = A()
-dict_2 = {a: '1 \t     2 \t \t \t \n\n 3', 1: [1, 2, 3, 4]}
-pd = PrettyDict(dict_2, fill_char=' ', fill_char_width=3, show_level='show')
+dict_2 = {a: '123', 1: [1, 2, 3, 4]}
+pd = PrettyDict(dict_2, fill_char='*', fill_char_width=5, show_level='show')
 pd.ppd()
 
 
