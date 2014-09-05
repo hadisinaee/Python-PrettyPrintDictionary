@@ -11,7 +11,7 @@ class A(object):
 
 
 a = A()
-dict_2 = {a: '123', 1: [1, 2, 3, 4]}
+dict_2 = {a: '1 \t     2 \t \t \t \n\n 3', 1: [1, 2, 3, 4]}
 pd = PrettyDict(dict_2, fill_char='*', fill_char_width=5, show_level='show')
 pd.ppd()
 

@@ -2,6 +2,7 @@ import sys
 import collections
 import random
 import time
+import re
 
 
 class Colors(object):
@@ -130,9 +131,12 @@ class PrettyDict(object):
                     print current_key_color + self.fill_char * (level * self.fill_char_width) + str(
                         key), (':level %d' % (level + 1)) if self.show_level == 'show' else '', color.get_end_color()
                     # make a print statement for the values
+                    r = re.compile(r'^\s+', re.MULTILINE)
                     print_statement = []
                     for v in value:
-                        print_statement += str(v)
+                        v = r.sub('', str(v))
+                        if v != '':
+                            print_statement += str(v)
                     print_statement = ','.join(print_statement)
                     # print the values in appropriate color
                     print current_value_color,
