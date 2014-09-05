@@ -1,19 +1,9 @@
 from pretty_print_dictionary import PrettyDict
 
-dict_1 = {'a': 0, '1': {1: 'c', 2: 'd'}}
-pd = PrettyDict(dict_1, fill_char='^', fill_char_width=4, show_level='hide')
+
+dict_1 = {'a': 0, '1': {1: {'abc': [1, 2, 3, 4, 5, 6], 'efg': [7, 8, 9, 10, 100]},
+                        2: {'1': {1: 'abc', 2: 'efg'}, '2': {3: 'abc'}}}, '2': [1, 2, 3, 4, 5, 6]}
+print dict_1
+
+pd = PrettyDict(dict_1, fill_char=' ', fill_char_width=4, show_level='show', order='even')
 pd.ppd()
-
-
-class A(object):
-    def __repr__(self):
-        return 'A'
-
-
-a = A()
-dict_2 = {a: '123', 1: [1, 2, 3, 4]}
-pd = PrettyDict(dict_2, fill_char='*', fill_char_width=5, show_level='show')
-pd.ppd()
-
-
-
