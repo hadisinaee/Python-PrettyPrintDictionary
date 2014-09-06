@@ -29,9 +29,9 @@ But if you use this lib it would be this(this is PyCharm Console):
 
 <h2>Usage</h2>
 
-Simply import the <b>PrettyDict</b> from <b>pretty_print_dictionary</b> 
+Simply import the <b>PrettyDict</b> from <b>pretty_dictionary</b> module from <b>pretty_print_dictionary</b> package
 ```
-from pretty_print_dictionary import PrettyDict
+from pretty_print_dictionary.pretty_dictionary import PrettyDict
 ```
 
 Create your own dictionary.
