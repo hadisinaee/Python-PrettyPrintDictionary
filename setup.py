@@ -25,6 +25,6 @@ setup(
         'Topic :: Utilities',
         'Intended Audience :: Developers',
         'Development Status :: 4 - Beta'
-
     ]
+
 )
