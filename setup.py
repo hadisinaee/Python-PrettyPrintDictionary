@@ -10,13 +10,13 @@ def read(file_name):
 
 setup(
     name='pretty_print_dictionary',
-    version=1.0,
+    version='1.1.1',
     author='Hadi Sinaee, Sharif University of Technology',
     author_email='sinaee@ce.sharif.ir',
     description='A tool for showing dictionary objects in a more human-readable format.',
     license='GNU GPL',
     keywords='dict dictionary pretty print',
-    url='https://github.com/kinghadi/Python-pretty_print_dictionary',
+    url='https://github.com/kinghadi/Python-PrettyPrintDictionary',
     packages=['pretty_print_dictionary'],
     long_description=read('README.md'),
     classifiers=[
