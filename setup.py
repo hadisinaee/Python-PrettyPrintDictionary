@@ -1,5 +1,6 @@
 __author__ = 'kinghadi'
 import os
+
 from setuptools import setup
 
 
@@ -24,5 +25,6 @@ setup(
         'Topic :: Utilities',
         'Intended Audience :: Developers',
         'Development Status :: 4 - Beta'
+
     ]
 )
