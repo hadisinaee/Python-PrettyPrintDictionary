@@ -124,7 +124,7 @@ class PrettyDict(object):
                         key), (':level %d' % (level + 1)) if self.show_level == 'show' else '', color.get_end_color()
                     self.__print(value, level + 1)
                 # iterate over values if value is an object of Iterable
-                elif isinstance(value, collections.Iterable):
+                elif isinstance(value, collections.Iterable) and not isinstance(value, str):
                     # get a appropriate color wrt the level of value
                     current_value_color = color.get_color(level=level + 1)
                     # print key value color
